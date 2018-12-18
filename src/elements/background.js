@@ -12,15 +12,21 @@ function mountains (canvas, mountainTop, mountainHeight) {
 
 export let bg
 
+function colourRange (point) {
+  return lerpColor(color('#e5e5ff'), color('#ffffff'), point)
+}
+
 export function makeBackground () {
   bg = createGraphics(windowWidth, windowHeight)
   var skyColor = color('#adeeff')
   var textColor = color('#ed225d')
   bg.background(skyColor)
   bg.noStroke()
-  bg.fill(225); mountains(bg, 50, 100)
-  bg.fill(240); mountains(bg, 90, 100)
-  bg.fill(255); mountains(bg, windowHeight / 2, 25)
+  bg.colorMode(HSB)
+
+  bg.fill(colourRange(0)); mountains(bg, 50, 100)
+  bg.fill(colourRange(0.33)); mountains(bg, 90, 100)
+  bg.fill(colourRange(1)); mountains(bg, windowHeight / 2, 25)
   bg.textAlign(CENTER)
   bg.textFont(comicZine, 64)
   bg.fill(textColor)
