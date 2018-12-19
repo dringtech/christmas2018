@@ -19,7 +19,7 @@ function offRight () {
   }
 }
 function setSpeed () {
-  return random(5, 10)
+  return random(2, 5)
 }
 
 class Skater {
@@ -29,6 +29,7 @@ class Skater {
     this.speed = setSpeed()
     this.boundaryTest = this.direction > 0 ? offRight : offLeft
     this.image = params.image
+    this.face = params.face
     this.createSprite()
     this.purlinCursor = random(10000)
   }
@@ -43,16 +44,27 @@ class Skater {
       this.sprite.rect(1, 1, 98, 98)
     }
     this.sprite.imageMode(CENTER)
+    this.sprite.push()
+    this.sprite.applyMatrix(
+      1, 0,
+      0, 1,
+      this.sprite.width * (0.5 + this.direction * 0.08), this.sprite.height * 0.29)
+    this.sprite.image(this.face, 0, 0)
+    this.sprite.pop()
+    this.sprite.push()
     this.sprite.applyMatrix(
       this.direction, 0,
       0, 1,
       this.sprite.width / 2, this.sprite.height / 2)
     this.sprite.image(this.image, 0, 0)
+    this.sprite.pop()
   }
   draw () {
     push()
     imageMode(CENTER)
-    image(this.sprite, this.x, this.y, this.sprite.width, this.sprite.height)
+    translate(this.x, this.y)
+    scale(1.5, 1.5)
+    image(this.sprite, 0, 0, this.sprite.width, this.sprite.height)
     pop()
   }
   animate () {
