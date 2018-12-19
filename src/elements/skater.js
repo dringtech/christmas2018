@@ -19,7 +19,7 @@ function offRight () {
   }
 }
 function setSpeed () {
-  return random(2, 5)
+  return random(2, 10)
 }
 
 class Skater {
