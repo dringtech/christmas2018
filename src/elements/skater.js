@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 const boundaryMargin = 105
-// var purlinDelta = 0.0005;
-const purlinDelta = 0.005
-const friction = 0.1
+const purlinDelta = 0.003
+const friction = 0.2
 
 function offLeft () {
   if (this.x < -boundaryMargin) {
@@ -73,7 +72,7 @@ class Skater {
     this.y = noise(this.purlinCursor += purlinDelta) * (windowHeight - this.sprite.height) / 2 + windowHeight / 2
     this.boundaryTest(this)
     this.speed -= friction * 1 / this.speed
-    if (this.speed < 0.5) this.speed = setSpeed()
+    if (this.speed < 1.0) this.speed = setSpeed()
   }
 }
 

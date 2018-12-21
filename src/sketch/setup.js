@@ -14,10 +14,10 @@ export function createSnowstorm () {
 
 export function setup () {
   createCanvas(windowWidth, windowHeight)
-  skaters.bea = createSkater({ image: skaterIcon, face: beaHead, x: -50, y: windowHeight / 2 })
+  skaters.bea = createSkater({ image: skaterIcon, face: beaHead, x: -50, y: windowHeight / 2, faceScale: 4 })
   skaters.martha = createSkater({ image: skaterIcon, face: marthaHead, x: -50, y: windowHeight / 2, faceScale: 4 })
   skaters.rebecca = createSkater({ image: skaterIcon, face: rebeccaHead, x: -50, y: windowHeight / 2, faceScale: 4 })
-  skaters.giles = createSkater({ image: skaterIcon, face: gilesHead, x: -50, y: windowHeight / 2 })
+  skaters.giles = createSkater({ image: skaterIcon, face: gilesHead, x: -50, y: windowHeight / 2, faceScale: 4 })
   createSnowstorm()
 
   makeBackground()
