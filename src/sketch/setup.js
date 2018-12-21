@@ -2,8 +2,15 @@
 import { skaterIcon, gilesHead, beaHead } from './preload'
 import { bg, makeBackground } from '../elements/background'
 import { createSkater } from '../elements/skater'
+import { createSnowflake } from '../elements/snowflake'
 
 export const skaters = {}
+export const snowstorm = []
+const numFlakes = 100
+
+export function createSnowstorm () {
+  for (let i = 0; i < numFlakes; i++) snowstorm[i] = createSnowflake()
+}
 
 export function setup () {
   createCanvas(windowWidth, windowHeight)
@@ -11,6 +18,8 @@ export function setup () {
   skaters.martha = createSkater({ image: skaterIcon, face: gilesHead, x: -50, y: windowHeight / 2 })
   skaters.rebecca = createSkater({ image: skaterIcon, face: gilesHead, x: -50, y: windowHeight / 2 })
   skaters.giles = createSkater({ image: skaterIcon, face: gilesHead, x: -50, y: windowHeight / 2 })
+  createSnowstorm()
+
   makeBackground()
   image(bg, 0, 0)
 }
