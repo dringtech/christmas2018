@@ -24,6 +24,7 @@ function setSpeed () {
 
 class Skater {
   constructor (params) {
+    this.faceScale = params.faceScale ? params.faceScale : 1
     this.x = params.x; this.y = params.y
     this.direction = random([1, -1])
     this.speed = setSpeed()
@@ -46,8 +47,8 @@ class Skater {
     this.sprite.imageMode(CENTER)
     this.sprite.push()
     this.sprite.applyMatrix(
-      1, 0,
-      0, 1,
+      1 / this.faceScale, 0,
+      0, 1 / this.faceScale,
       this.sprite.width * (0.5 + this.direction * 0.08), this.sprite.height * 0.29)
     this.sprite.image(this.face, 0, 0)
     this.sprite.pop()
