@@ -3,10 +3,13 @@ import { skaterIcon, gilesHead, beaHead, marthaHead, rebeccaHead } from './prelo
 import { bg, makeBackground } from '../elements/background'
 import { createSkater } from '../elements/skater'
 import { createSnowflake } from '../elements/snowflake'
-import { setupSound, playTune } from '../elements/tune/sound'
+import { setupSound } from '../elements/tune/sound'
+import { createButton } from '../elements/button'
 
 export const skaters = {}
 export const snowstorm = []
+export let soundButton
+
 const numFlakes = 100
 
 export function createSnowstorm () {
@@ -15,6 +18,7 @@ export function createSnowstorm () {
 
 export function setup () {
   setupSound()
+  soundButton = createButton()
 
   createCanvas(windowWidth, windowHeight)
   skaters.bea = createSkater({ image: skaterIcon, face: beaHead, x: -50, y: windowHeight / 2, faceScale: 4 })
@@ -25,5 +29,4 @@ export function setup () {
 
   makeBackground()
   image(bg, 0, 0)
-  playTune()
 }

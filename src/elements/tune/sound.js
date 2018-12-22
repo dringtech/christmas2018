@@ -5,7 +5,7 @@ export let tune
 let synth
 
 function makeSound (time, note) {
-  synth.play(note, 0.5, time, 0.2)
+  synth.play(note, 0.1, time, 0.2)
 }
 
 export function setupSound () {
@@ -23,4 +23,8 @@ export function setupSound () {
 
 export function playTune () {
   tune.loop()
+}
+
+export function stopTune () {
+  tune.stop()
 }

@@ -50,7 +50,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(png|jpg|gif)$/,
         use: [
           'file-loader',
           { loader: 'image-webpack-loader' },
@@ -60,6 +60,7 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [ 'file-loader' ],
       },
+      { test: /\.svg$/, loader: 'svg-inline-loader' },
     ],
   },
 }
