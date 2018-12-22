@@ -5,12 +5,12 @@ export let tune
 let synth
 
 function makeSound (time, note) {
-  synth.play(note, 1, time, 1)
+  synth.play(note, 0.5, time, 0.2)
 }
 
 export function setupSound () {
   synth = new p5.PolySynth()
-  synth.setADSR(0.01, 1, 0.5, 10)
+  synth.setADSR(0.01, 1, 0.2, 10)
 
   const score = getScore()
   const partA = new p5.Part()
