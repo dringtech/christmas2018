@@ -30,5 +30,6 @@ export function makeBackground () {
   bg.textAlign(CENTER)
   bg.textFont(comicZine, 64)
   bg.fill(textColor)
-  bg.text('Merry Christmas from The Drings', windowWidth / 2, 50)
+  bg.text('Merry Christmas', windowWidth / 2, 50)
+  bg.text('from The Drings', windowWidth / 2, 100)
 }
