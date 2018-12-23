@@ -10,7 +10,7 @@ export const skaters = {}
 export const snowstorm = []
 export let soundButton
 
-const numFlakes = 100
+const numFlakes = 75
 
 export function createSnowstorm () {
   for (let i = 0; i < numFlakes; i++) snowstorm[i] = createSnowflake()
