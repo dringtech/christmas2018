@@ -9,8 +9,9 @@ function makeSound (time, note) {
 }
 
 export function setupSound () {
-  synth = new p5.PolySynth()
-  synth.setADSR(0.01, 1, 0.2, 10)
+  masterVolume(0.3)
+  synth = new p5.PolySynth(p5.MonoSynth, 4)
+  synth.setADSR(0.2, 1, 0.7, 1)
 
   const score = getScore()
   const partA = new p5.Part()
@@ -18,7 +19,7 @@ export function setupSound () {
     partA.addPhrase(new p5.Phrase(`A${i}`, makeSound, phrase))
   })
   tune = partA
-  tune.setBPM(60)
+  tune.setBPM(70)
 }
 
 export function playTune () {
